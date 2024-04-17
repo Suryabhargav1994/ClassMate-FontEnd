@@ -1,0 +1,53 @@
+.inventory-body {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 100vh; /* Full height of the viewport */
+  padding: 30px;
+  background-image: url("/assets/home.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  width: 200px; 
+  margin: 0 auto; 
+  border: 2px solid #007bff; 
+  display: block; 
+  text-align: center; 
+  border-radius: 50px;
+}
+
+.btn-primary:hover {
+  background-color: #007bff;
+  color: white; 
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 500;
+}

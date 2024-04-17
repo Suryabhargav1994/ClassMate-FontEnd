@@ -1,0 +1,98 @@
+ .card-user {
+    width: 84px;
+    height: 97px;
+ }
+
+ .card-main {
+    width: 336px;
+    height: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px;
+ }
+
+ .seach-icon {
+    position: relative;
+    cursor: pointer;
+    img{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    input {
+        padding: 5px;
+        border-radius: 30px;
+        width: 260px;
+    }
+ }
+
+ .nav-bar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-bottom: 1px solid gray;
+ }
+
+ .logout {
+    cursor: pointer;
+ }
+
+//  .main-card {
+//     cursor: pointer;
+//  }
+
+ body, html {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+ }
+ 
+ .text-center {
+   padding-left: 400px;
+ }
+
+ .text-center{
+   max-width: 50%; 
+   max-height: 50vh;
+ }
+
+ .btn-primary {
+   margin-top: 10px;
+   width: 200px; 
+   margin: 0 auto; 
+   border: 2px solid #007bff; 
+   display: block; 
+   text-align: center;
+   border-radius: 50px;
+   cursor: pointer;
+ }
+ 
+ .btn-primary:hover {
+   background-color: #007bff;
+   color: white; 
+ }
+ 
+ .back-icon {
+   cursor: pointer;
+   margin-left: -210px;
+ }
+
+ .btn-secondary {
+   margin-top: 10px;
+   width: 200px; 
+   margin: 0 auto; 
+   border: 2px solid red; 
+   display: block; 
+   text-align: center;
+   border-radius: 50px;
+   cursor: pointer;
+ }
+
+ .btnn-primary:hover {
+   background-color: red;
+   color: white; 
+ }
+ 
+ 
+ 

@@ -1,0 +1,103 @@
+<body class="inventory-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">Accomadation Registration</h1>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="form">
+                        <div class="form-group">
+                            <label>Accomadation Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="name"
+                                [ngClass]="{ 'is-invalid': submitted && f['universityName'].errors }"
+                            />
+                            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                <div *ngIf="f['name'].errors['required']">Accomadation Name is required</div>
+                                <div *ngIf="f['name'].errors['minlength']">
+                                    Accomadation Name must be at least 3 characters
+                                </div>
+                                <div *ngIf="f['name'].errors['maxlength']">
+                                    Accomadation Name must not exceed 20 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Accomadation Address</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="address"
+                                [ngClass]="{ 'is-invalid': submitted && f['address'].errors }"
+                            />
+                            <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
+                                <div *ngIf="f['address'].errors['required']">Accomadation Location is required</div>
+                                <div *ngIf="f['address'].errors['minlength']">
+                                    Accomadation Location must be at least 3 characters
+                                </div>
+                                <div *ngIf="f['address'].errors['maxlength']">
+                                    Accomadation Location must not exceed 20 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Accomadation Price</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="price"
+                                [ngClass]="{ 'is-invalid': submitted && f['price'].errors }"
+                            />
+                            <div *ngIf="submitted && f['price'].errors" class="invalid-feedback">
+                                <div *ngIf="f['price'].errors['required']">Accomadation price is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Accomadation availability</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="availability"
+                                [ngClass]="{ 'is-invalid': submitted && f['availability'].errors }"
+                            />
+                            <div *ngIf="submitted && f['availability'].errors" class="invalid-feedback">
+                                <div *ngIf="f['availability'].errors['required']">Accomadation availability is required</div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" (click)="accomadationRegister()">Submit</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" *ngIf="!uniLinkDisable">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">University And Accomidation Registration</h5>
+                    </div>
+                    <div class="card-body">
+                        <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedUniversityId">
+                            <option [ngValue]="undefined" [disabled]="true">Select University</option>
+                            <option *ngFor="let university of universityOptions" [value]="university.university_id">{{ university.university_name }}</option>
+                        </select> 
+                        <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedAccomdationId">
+                            <option [ngValue]="undefined" [disabled]="true">Select Accomadation</option>
+                            <option *ngFor="let accomdation of accomadationArray" [value]="accomdation.accomidation_name">{{ accomdation.accomidation_name }}</option>
+                        </select> -->
+                              <label>Distance</label>
+                              <input type="text" class="form-control" [(ngModel)]="inputValue">
+                        <div style="margin-top: 15px;">
+                            <button class="btn btn-primary" (click)="accUniLink()"  [disabled]="uniLinkForm.invalid">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

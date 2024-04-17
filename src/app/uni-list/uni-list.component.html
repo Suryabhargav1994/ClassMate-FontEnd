@@ -1,0 +1,73 @@
+<body class="inventory-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Select University</h5>
+                    </div>
+                    <div class="card-body">
+                        <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedUniversityId">
+                            <option [ngValue]="undefined" [disabled]="true">Select University</option>
+                            <option *ngFor="let university of universityOptions" [value]="university.university_id">{{ university.university_name }}</option>
+                        </select>
+                    </div>
+                    <div style="padding: 10px;">
+                        <button class="btn btn-primary" (click)="apply()">Apply</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">University Registration</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="form">
+                        <div class="form-group">
+                            <label>University Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="universityName"
+                                [ngClass]="{ 'is-invalid': submitted && f['universityName'].errors }"
+                            />
+                            <div *ngIf="submitted && f['universityName'].errors" class="invalid-feedback">
+                                <div *ngIf="f['universityName'].errors['required']">University Name is required</div>
+                                <div *ngIf="f['universityName'].errors['minlength']">
+                                    University Name must be at least 3 characters
+                                </div>
+                                <div *ngIf="f['universityName'].errors['maxlength']">
+                                    University Name must not exceed 20 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>University Location</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="universityAddress"
+                                [ngClass]="{ 'is-invalid': submitted && f['universityAddress'].errors }"
+                            />
+                            <div *ngIf="submitted && f['universityAddress'].errors" class="invalid-feedback">
+                                <div *ngIf="f['universityAddress'].errors['required']">University Location is required</div>
+                                <div *ngIf="f['universityAddress'].errors['minlength']">
+                                    University Location must be at least 3 characters
+                                </div>
+                                <div *ngIf="f['universityAddress'].errors['maxlength']">
+                                   University Location must not exceed 20 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" (click)="uniRegister()">Submit</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

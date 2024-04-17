@@ -1,0 +1,62 @@
+<!-- <div>
+    <strong> List of Aminity</strong>
+    <ul>
+        <li *ngFor="let amenity of amenities">{{ amenity.amenity_name }}</li>
+    </ul>
+</div> -->
+<body class="inventory-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">List of Aminity</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li *ngFor="let amenity of amenities">{{ amenity.amenity_name }}</li>
+                        </ul>
+                    </div>
+                    <!-- <div style="padding: 10px;">
+                        <button class="btn btn-primary">Apply</button>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">University Registration</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="form">
+                        <div class="form-group">
+                            <label>Amenity Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="amenityName"
+                                [ngClass]="{ 'is-invalid': submitted && f['amenityName'].errors }"
+                            />
+                            <div *ngIf="submitted && f['amenityName'].errors" class="invalid-feedback">
+                                <div *ngIf="f['amenityName'].errors['required']">Amenity Name is required</div>
+                                <div *ngIf="f['amenityName'].errors['minlength']">
+                                    Amenity Name must be at least 3 characters
+                                </div>
+                                <div *ngIf="f['amenityName'].errors['maxlength']">
+                                    Amenity Name must not exceed 20 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" (click)="aminityRegister()">Submit</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+

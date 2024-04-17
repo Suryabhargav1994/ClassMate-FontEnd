@@ -1,0 +1,58 @@
+p {
+    font-family: Lato;
+  }
+  
+  #root {
+    padding: 30px;
+  }
+  
+  .register-form {
+    max-width: 350px;
+    padding: 50px;
+    background-color: white;
+  }
+
+  .inventory-body {
+    position: fixed;
+    min-width: 100%;
+    background-image: url("/assets/home.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .text-center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .container{
+    padding-top:50px;
+    margin: auto;
+  }
+
+  .password-main {
+    position: relative;
+  }
+
+  .password-eye {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+  }
+
+  .btn {
+    margin-top: 20px;
+    width: 200px; 
+  }
