@@ -1,74 +1,105 @@
 <div class="asset-mgmt-container">
-    <div class="d-flex justify-content-between align-items-center p-3 nav-bar">
-        <img src="assets/main-home.svg" alt="">
-        <div class="d-flex gap-3">
-            <strong style="margin-top: 10px;">Safety Tips</strong>
-            <strong style="margin-top: 10px;">How It Works</strong>
-            <button type="submit" class="btn btn-primary" (click)="accPopUp()">Accomadation Register</button>
-        </div>
-        <div class="d-flex gap-3">
-            <div  class="seach-icon">
-            <input type="text" placeholder="Filter">
-            <img src="assets/sliders.svg" alt="">
-            </div>
-            <div class="seach-icon">
-            <input type="text" placeholder="Search">
-            <img src="assets/search.svg" alt="">
-            </div>
-        </div>
-        <div class="d-flex gap-1 logout">
-            <img src="assets/logout.svg" alt="">
-            <p class="m-0" (click)="navigateUrl()">Logout</p>
-        </div>
+  <div class="d-flex justify-content-between align-items-center p-3 nav-bar">
+    <img src="assets/main-home.svg" alt="" />
+    <div class="d-flex gap-3">
+      <strong style="margin-top: 10px">Safety Tips</strong>
+      <strong style="margin-top: 10px">How It Works</strong>
+      <button type="submit" class="btn btn-primary" (click)="accPopUp()">
+        Accomadation Register
+      </button>
     </div>
-    <div class="back-icon" (click)="navigateUrlTo()">
-        <svg height="30px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M189.3,128.4L89,233.4c-6,5.8-9,13.7-9,22.4c0,8.7,3,16.5,9,22.4l100.3,105.4c11.9,12.5,31.3,12.5,43.2,0  c11.9-12.5,11.9-32.7,0-45.2L184.4,288h217c16.9,0,30.6-14.3,30.6-32c0-17.7-13.7-32-30.6-32h-217l48.2-50.4  c11.9-12.5,11.9-32.7,0-45.2C220.6,115.9,201.3,115.9,189.3,128.4z"/></svg>
+    <div class="d-flex gap-3">
+      <div class="seach-icon">
+        <input
+          type="text"
+          placeholder="Filter By Distance"
+          [(ngModel)]="distanceQuery"
+          (input)="applyDistanceFilter()"
+        />
+        <img src="assets/sliders.svg" alt="" />
+      </div>
+      <div class="seach-icon">
+        <input
+          type="text"
+          placeholder="Search By Accomadation Name"
+          [(ngModel)]="searchQuery"
+          (input)="applySearchFilter()"
+        />
+        <img src="assets/search.svg" alt="" />
+      </div>
     </div>
-    <div class="d-flex flex-wrap m-3">
-    <div  *ngFor="let accomdation of accomadationArray" class="card-main m-3 main-card">
-        <strong>Apartment-3bedroom,1Bath</strong>
-        <p class="m-0">1Bad avail | {{accomdation.price}} p/room | avail 27 May</p>
-        <img class="mt-2" src="assets/card-detail.png" alt="">
-        <hr>
-        <strong>{{accomdation.username}}</strong>
-        <p>multiple roommates</p>
-        <div class="d-flex">
-            <img  class="card-user" src="assets/card-user.png" alt="">
-            <div class="ms-3">
-                <p class="m-0">22 Years</p>
-                <p class="m-0">1 male</p>
-                <p class="m-0">{{accomdation.accomidation_name}}</p>
-                <p class="m-0">ui/ux designer</p>
-                <p class="m-0">{{accomdation.distance}}</p>
-            </div>
+    <div class="d-flex m-0 logout" (click)="toggleMenuBox()">
+        <img src="../../assets/profile-circle.svg" alt="" id="profile-image"/>
+        <div class="menu-box" id="menu-box" *ngIf="showMenuBox">
+            <span class="logout-button1">Profile Details</span>
+          <div class="row">
+            <span class="first-name">FirstName: {{ user.firstname }}</span>
+            <span class="last-name">LastName: {{ user.lastname }}</span>
+            <span class="phone-number">PhoneNumber: {{ user.phone_number }}</span>
+          </div>
+          <div class="logout-button" (click)="navigateUrl()">
+            <img src="../../assets/logout.svg" alt="" class="logout-icon" />
+            <p class="logout-text">Logout</p>
+          </div>
         </div>
-        <div>
-            <button class="btn btn-primary" (click)="redirectAminity()">Aminity List</button>
+      </div>      
+  </div>
+  <div class="back-icon" (click)="navigateUrlTo()">
+    <svg
+      height="30px"
+      id="Layer_1"
+      style="enable-background: new 0 0 512 512"
+      version="1.1"
+      viewBox="0 0 512 512"
+      width="512px"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <path
+        d="M189.3,128.4L89,233.4c-6,5.8-9,13.7-9,22.4c0,8.7,3,16.5,9,22.4l100.3,105.4c11.9,12.5,31.3,12.5,43.2,0  c11.9-12.5,11.9-32.7,0-45.2L184.4,288h217c16.9,0,30.6-14.3,30.6-32c0-17.7-13.7-32-30.6-32h-217l48.2-50.4  c11.9-12.5,11.9-32.7,0-45.2C220.6,115.9,201.3,115.9,189.3,128.4z"
+      />
+    </svg>
+  </div>
+  <div class="d-flex flex-wrap m-3">
+    <div
+      *ngFor="let accomdation of accomadationArray"
+      class="card-main m-3 main-card"
+    >
+      <strong>Apartment-3bedroom,1Bath</strong>
+      <p class="m-0">
+        1Bad avail | {{ accomdation.price }} p/room | avail 27 May
+      </p>
+      <img class="mt-2" src="assets/card-detail.png" alt="" />
+      <hr />
+      <strong>{{ accomdation.username }}</strong>
+      <p>multiple roommates</p>
+      <div class="d-flex">
+        <img class="card-user" src="assets/card-user.png" alt="" />
+        <div class="ms-3">
+          <p class="m-0">22 Years</p>
+          <p class="m-0">1 male</p>
+          <p class="m-0">ui/ux designer</p>
+          <p class="m-0">{{accomdation.availability}}</p>
+          <p class="m-0">{{accomdation.accomidation_name}}</p>
+          <p class="m-0">{{accomdation.distance}}</p>
         </div>
-        <div>
-            <!-- <button class="btn btn-primary" *ngIf="!showBooked" (click)="bookedHouse(accomdation)">Booked</button> -->
-            <button class="btn btn-primary" *ngIf="showBooked">Booked</button>
-        </div>
-        <hr>
-        <div class="d-flex gap-5 mt-3">
-            <button class="btn btn-primary" *ngIf="!showBooked" (click)="bookedHouse(accomdation)">Booked</button>
-            <!-- <div class="d-flex gap-2">
-                <img src="assets/dial.svg" alt="">
-                <p class="m-0">Contact</p>
-            </div>
-            <div class="d-flex gap-2">
-                <img src="assets/share.svg" alt="">
-                <p class="m-0">Share</p>
-            </div>
-            <div class="d-flex gap-2">
-                <img src="assets/location.svg" alt="">
-                <p class="m-0">Location</p>
-            </div> -->
-        </div>
+      </div>
+      <div>
+        <button class="btn btn-primary" (click)="redirectAminity()">
+          Aminity List
+        </button>
+      </div>
+      <br>
+      <div class="button-container">
+        <button class="btn btn-primary" *ngIf="!accomdation.booked" (click)="bookedHouse(accomdation)">Book Now</button>
+        <button class="btn btn-primary" *ngIf="accomdation.booked">Booked</button>
+        <button class="btn btn-primary" id="button3" ej-button e-size="sizesmall" (click)="deleteAccommodation(accomdation)">Delete</button>
+      </div>
+      <hr />   
     </div>
     <div *ngIf="!accomadationArray.length" class="text-center">
-        <img src="assets/no-data.jpg" alt="">
+      <img src="assets/no-data.jpg" alt="" />
     </div>
- </div>
-
+  </div>
 </div>
