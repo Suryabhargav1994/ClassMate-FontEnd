@@ -4,13 +4,12 @@
   align-items: center; /* Vertically center */
   height: 100vh; /* Full height of the viewport */
   padding: 30px;
-  background-image: url("/assets/home.jpg");
+  background-image: url("../../assets/loginbgimage.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   background-size: cover;
 }
-
 
 .form-select {
   display: block;
@@ -34,17 +33,17 @@
 
 .btn-primary {
   margin-top: 10px;
-  width: 200px; 
-  margin: 0 auto; 
-  border: 2px solid #007bff; 
-  display: block; 
-  text-align: center; 
+  width: 200px;
+  margin: 0 auto;
+  border: 2px solid #007bff;
+  display: block;
+  text-align: center;
   border-radius: 50px;
 }
 
 .btn-primary:hover {
   background-color: #007bff;
-  color: white; 
+  color: white;
 }
 
 .card-title {

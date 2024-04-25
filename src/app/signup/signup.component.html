@@ -1,107 +1,145 @@
 <body class="inventory-body" fxLayoutAlign="center center">
-    <div class="form-wrapper" fxLayoutAlign="center center">
-        <div class="text-center">
-            <div class="register-form">
-                <div>
-                    <img class="img-align" src="assets/logo.jpg">
-                </div>
-                <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                  <div class="form-group">
-                    <label>First Name</label>
-                    <input
-                      type="text"
-                      formControlName="firstname"
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"
-                    />
-                    <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
-                      <div *ngIf="f['firstname'].errors['required']">Firstname is required</div>
-                      <div *ngIf="f['firstname'].errors['minlength']">
-                        Firstname must be at least 3 characters
-                      </div>
-                      <div *ngIf="f['firstname'].errors['maxlength']">
-                        Firstname must not exceed 20 characters
-                      </div>
-                    </div>
-                  </div>
-              
-                  <div class="form-group">
-                    <label>Lastname</label>
-                    <input
-                      type="text"
-                      formControlName="lastname"
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }"
-                    />
-                    <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
-                      <div *ngIf="f['lastname'].errors['required']">Lastname is required</div>
-                      <div *ngIf="f['lastname'].errors['minlength']">
-                        Lastname must be at least 3 characters
-                      </div>
-                      <div *ngIf="f['lastname'].errors['maxlength']">
-                        Lastname must not exceed 20 characters
-                      </div>
-                    </div>
-                  </div>
-              
-                  <div class="form-group">
-                    <label>Email</label>
-                    <input
-                        type="text"
-                        formControlName="email"
-                        class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f['email'].errors || emailexists }"
-                    />
-                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                        <div *ngIf="f['email'].errors['required']">Email is required</div>
-                        <div *ngIf="f['email'].errors['email']">Email is invalid</div>
-                    </div>
-                    <div *ngIf="emailexists" class="invalid-feedback">
-                        Email already exists
-                    </div>
-                </div>
-                
-              
-                  <div class="form-group password-main">
-                    <label>Password</label>
-                    <input id="password-field" [type]="passwordHidden ? 'password' : 'text'" class="form-control" name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
-                    <span class="password-eye" toggle="#password-field" (click)="togglePasswordVisibility()">
-                      <i [ngClass]="passwordHidden ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
-                    </span>
-                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                      <div *ngIf="f['password'].errors['required']">Password is required</div>
-                      <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
-                      <div *ngIf="f['password'].errors['maxlength']">Username must not exceed 40 characters</div>
-                    </div>
-                  </div>
-              
-                  <div class="form-group">
-                    <label>Phone Number</label>
-                    <input
-                      type="number"
-                      formControlName="phonenumber"
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && f['phonenumber'].errors }"
-                    />
-                    <div
-                      *ngIf="submitted && f['phonenumber'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="f['phonenumber'].errors['required']">
-                        Phonenumber is required
-                      </div>
-                    </div>
-                  </div>
-              
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                  </div>
-
-                  <div class="forgot-password">
-                    <a routerLink="../login">Already Have An Account!! Login</a>
-                </div>
-                </form>
-              </div>
+  <div class="form-wrapper" fxLayoutAlign="center center">
+    <div class="text-center">
+      <div class="register-form">
+        <div>
+          <img class="img-align" src="assets/logo.jpg" />
         </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>First Name</label>
+            <input
+              type="text"
+              formControlName="firstname"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['firstname'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['firstname'].errors['required']">
+                Firstname is required
+              </div>
+              <div *ngIf="f['firstname'].errors['minlength']">
+                Firstname must be at least 3 characters
+              </div>
+              <div *ngIf="f['firstname'].errors['maxlength']">
+                Firstname must not exceed 20 characters
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Lastname</label>
+            <input
+              type="text"
+              formControlName="lastname"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['lastname'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['lastname'].errors['required']">
+                Lastname is required
+              </div>
+              <div *ngIf="f['lastname'].errors['minlength']">
+                Lastname must be at least 3 characters
+              </div>
+              <div *ngIf="f['lastname'].errors['maxlength']">
+                Lastname must not exceed 20 characters
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': (submitted && f['email'].errors) || emailexists
+              }"
+            />
+            <div
+              *ngIf="submitted && f['email'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+            <div *ngIf="emailexists" class="invalid-feedback">
+              Email already exists
+            </div>
+          </div>
+
+          <div class="form-group password-main">
+            <label>Password</label>
+            <input
+              id="password-field"
+              [type]="passwordHidden ? 'password' : 'text'"
+              class="form-control"
+              name="password"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            />
+            <span
+              class="password-eye"
+              toggle="#password-field"
+              (click)="togglePasswordVisibility()"
+            >
+              <i
+                [ngClass]="passwordHidden ? 'fa fa-eye' : 'fa fa-eye-slash'"
+              ></i>
+            </span>
+            <div
+              *ngIf="submitted && f['password'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['password'].errors['required']">
+                Password is required
+              </div>
+              <div *ngIf="f['password'].errors['minlength']">
+                Password must be at least 6 characters
+              </div>
+              <div *ngIf="f['password'].errors['maxlength']">
+                Username must not exceed 40 characters
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input
+              type="number"
+              formControlName="phonenumber"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['phonenumber'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['phonenumber'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['phonenumber'].errors['required']">
+                Phonenumber is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary center-btn">
+              Register
+            </button>
+          </div>
+
+          <div class="forgot-password center-btn1">
+            <a routerLink="../login">Already Have An Account!! Login</a>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </body>

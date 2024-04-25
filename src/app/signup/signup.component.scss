@@ -1,58 +1,78 @@
 p {
-    font-family: Lato;
-  }
-  
-  #root {
-    padding: 30px;
-  }
-  
-  .register-form {
-    max-width: 350px;
-    padding: 50px;
-    background-color: white;
-  }
+  font-family: Lato;
+}
 
-  .inventory-body {
-    position: fixed;
-    min-width: 100%;
-    background-image: url("/assets/home.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    background-size: cover;
-  }
+#root {
+  padding: 30px;
+}
 
-  .text-center {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.register-form {
+  width: 500px;
+  padding: 50px;
+  background-color: white;
+  border-radius: 12px;
+}
 
-  .field-icon {
-    float: right;
-    margin-left: -25px;
-    margin-top: -25px;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .container{
-    padding-top:50px;
-    margin: auto;
-  }
+.inventory-body {
+  position: fixed;
+  min-width: 100%;
+  background-image: url("../../assets/loginbgimage.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+}
 
-  .password-main {
-    position: relative;
-  }
+.text-center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .password-eye {
-    position: absolute;
-    top: 30px;
-    right: 10px;
-  }
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
 
-  .btn {
-    margin-top: 20px;
-    width: 200px; 
-  }
+.container {
+  padding-top: 50px;
+  margin: auto;
+}
+
+.password-main {
+  position: relative;
+}
+
+.password-eye {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+
+.btn {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.text-center {
+  text-align: left !important;
+}
+
+.center-btn {
+  text-align: center;
+  margin-left: 100px;
+}
+
+.center-btn1 {
+  text-align: center;
+  margin-left: 0px;
+}
+
+.img-align {
+  text-align: center;
+  margin-left: 60px;
+}

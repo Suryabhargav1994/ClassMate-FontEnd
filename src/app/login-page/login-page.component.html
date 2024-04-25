@@ -1,53 +1,80 @@
 <body class="inventory-body" fxLayoutAlign="center center">
-    <div class="form-wrapper" fxLayoutAlign="center center">
-        <div class="text-center">
-            <div class="register-form">
-                <div>
-                    <img class="img-align" src="assets/logo.jpg">
-                </div>
-                <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                  <div class="form-group">
-                      <label>Email</label>
-                      <input
-                          type="text"
-                          formControlName="email"
-                          class="form-control"
-                          [ngClass]="{ 'is-invalid': submitted && f['email'].errors || emailexists }"
-                      />
-                      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                          <div *ngIf="f['email'].errors['required']">Email is required</div>
-                          <div *ngIf="f['email'].errors['email']">Email is invalid</div>
-                      </div>
-                  </div>
-              
-                  <div class="form-group password-main">
-                      <label>Password</label>
-                      <input id="password-field" [type]="passwordHidden ? 'password' : 'text'" class="form-control" name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
-                      <span class="password-eye" toggle="#password-field" (click)="togglePasswordVisibility()">
-                          <i [ngClass]="passwordHidden ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
-                      </span>
-                      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                          <div *ngIf="f['password'].errors['required']">Password is required</div>
-                          <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
-                          <div *ngIf="f['password'].errors['maxlength']">Username must not exceed 40 characters</div>
-                      </div>
-                  </div>
-              
-                  <!-- Show "Invalid Credentials" error message -->
-                  <div *ngIf="emailexists" class="invalid-feedback">
-                      Invalid credentials
-                  </div>
-              
-                  <div class="form-group">
-                      <button type="submit" class="btn btn-primary">Login</button>
-                  </div>
-              
-                  <div class="forgot-password">
-                      <a routerLink="../signup">Create New Account</a>
-                  </div>
-              </form>
-              
-              </div>
+  <div class="form-wrapper" fxLayoutAlign="center center">
+    <div class="text-center">
+      <div class="register-form">
+        <div>
+          <img class="img-align" src="assets/logo.jpg" />
         </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': (submitted && f['email'].errors) || emailexists
+              }"
+            />
+            <div
+              *ngIf="submitted && f['email'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+          </div>
+
+          <div class="form-group password-main">
+            <label>Password</label>
+            <input
+              id="password-field"
+              [type]="passwordHidden ? 'password' : 'text'"
+              class="form-control"
+              name="password"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            />
+            <span
+              class="password-eye"
+              toggle="#password-field"
+              (click)="togglePasswordVisibility()"
+            >
+              <i
+                [ngClass]="passwordHidden ? 'fa fa-eye' : 'fa fa-eye-slash'"
+              ></i>
+            </span>
+            <div
+              *ngIf="submitted && f['password'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['password'].errors['required']">
+                Password is required
+              </div>
+              <div *ngIf="f['password'].errors['minlength']">
+                Password must be at least 6 characters
+              </div>
+              <div *ngIf="f['password'].errors['maxlength']">
+                Username must not exceed 40 characters
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="emailexists" class="invalid-feedback">
+            Invalid credentials
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary center-btn">
+              Login
+            </button>
+          </div>
+
+          <div class="forgot-password center-btn1">
+            <a routerLink="../signup">Create New Account</a>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </body>

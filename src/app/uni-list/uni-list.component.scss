@@ -1,64 +1,15 @@
-// p {
-//     font-family: Lato;
-//   }
-  
-//   #root {
-//     padding: 30px;
-//   }
-  
-//   .register-form {
-//     max-width: 350px;
-//     padding: 50px;
-//     background-color: white;
-//   }
-
-//   .inventory-body {
-//     position: fixed;
-//     min-width: 100%;
-//     background-image: url("/assets/home.jpg");
-//     background-repeat: no-repeat;
-//     background-size: 100%;
-//     background-position: center;
-//     background-size: cover;
-//   }
-
-//   .text-center {
-//     height: 100vh;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//   }
-
-//   .field-icon {
-//     float: right;
-//     margin-left: -25px;
-//     margin-top: -25px;
-//     position: relative;
-//     z-index: 2;
-//   }
-  
-//   .container{
-//     padding-top:50px;
-//     margin: auto;
-//   }
-
-//   .btn {
-//     margin-top: 20px;
-//   }
-
 .inventory-body {
   display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
-  height: 100vh; /* Full height of the viewport */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   padding: 30px;
-  background-image: url("/assets/home.jpg");
+  background-image: url("../../assets/loginbgimage.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   background-size: cover;
 }
-
 
 .form-select {
   width: 100%;
@@ -70,10 +21,10 @@
 
 .btn-primary {
   margin-top: 10px;
-  width: 200px; 
-  margin: 0 auto; 
-  border: 2px solid #007bff; 
-  display: block; 
+  width: 200px;
+  margin: 0 auto;
+  border: 2px solid #007bff;
+  display: block;
   text-align: center;
   border-radius: 50px;
   cursor: pointer;
@@ -81,14 +32,10 @@
 
 .btn-primary:hover {
   background-color: #007bff;
-  color: white; 
+  color: white;
 }
 
 .card-title {
   font-size: 20px;
   font-weight: 500;
 }
-
-
-
-
