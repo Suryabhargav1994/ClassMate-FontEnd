@@ -33,7 +33,7 @@ export class UniListComponent implements OnInit {
           [
             Validators.required,
             Validators.minLength(3),
-            Validators.maxLength(20),
+            Validators.maxLength(50),
           ],
         ],
         universityAddress: [
@@ -41,7 +41,7 @@ export class UniListComponent implements OnInit {
           [
             Validators.required,
             Validators.minLength(3),
-            Validators.maxLength(20),
+            Validators.maxLength(50),
           ],
         ],
       },
@@ -73,6 +73,8 @@ public uniRegister(){
   }
   if(this.form.valid){
   this.apiservice.uniRegister(this.form.value).subscribe((result:any) => {
+    console.log(result);
+    
   if(result && result.status === "200"){
    this.form.reset();
    this.universityList();

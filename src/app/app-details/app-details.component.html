@@ -2,13 +2,6 @@
   <div class="d-flex justify-content-between align-items-center p-3 nav-bar">
     <img src="assets/main-home.svg" alt="" />
     <div class="d-flex gap-3">
-      <strong style="margin-top: 10px">Safety Tips</strong>
-      <strong style="margin-top: 10px">How It Works</strong>
-      <button type="submit" class="btn btn-primary" (click)="accPopUp()">
-        Accomadation Register
-      </button>
-    </div>
-    <div class="d-flex gap-3">
       <div class="seach-icon">
         <input
           type="text"
@@ -21,21 +14,27 @@
       <div class="seach-icon">
         <input
           type="text"
-          placeholder="Search By Accomadation Name"
+          placeholder="Search By Accommodation Name"
           [(ngModel)]="searchQuery"
           (input)="applySearchFilter()"
         />
         <img src="assets/search.svg" alt="" />
       </div>
     </div>
+    <div class="d-flex gap-3">
+      <button type="submit" class="btn btn-primary" (click)="accPopUp()">
+        Accommodation Register
+      </button>
+    </div>
     <div class="d-flex m-0 logout" (click)="toggleMenuBox()">
-        <img src="../../assets/profile-circle.svg" alt="" id="profile-image"/>
+        <img style="width: 40px" src="../../assets/profile_3135715.png" alt="" id="profile-image"/>
         <div class="menu-box" id="menu-box" *ngIf="showMenuBox">
             <span class="logout-button1">Profile Details</span>
+            <div class="horizontal-line"></div>
           <div class="row">
-            <span class="first-name">FirstName: {{ user.firstname }}</span>
-            <span class="last-name">LastName: {{ user.lastname }}</span>
-            <span class="phone-number">PhoneNumber: {{ user.phone_number }}</span>
+            <span class="first-name">First Name: {{ user.firstname }}</span>
+            <span class="last-name">Last Name: {{ user.lastname }}</span>
+            <span class="phone-number">Phone Number: {{ user.phone_number }}</span>
           </div>
           <div class="logout-button" (click)="navigateUrl()">
             <img src="../../assets/logout.svg" alt="" class="logout-icon" />
@@ -66,23 +65,24 @@
       *ngFor="let accomdation of accomadationArray"
       class="card-main m-3 main-card"
     >
-      <strong>Apartment-3bedroom,1Bath</strong>
+      <strong>Apartment-Bedroom, Bathroom</strong>
       <p class="m-0">
-        1Bad avail | {{ accomdation.price }} p/room | avail 27 May
+        1Bed available | price/room -  ${{ accomdation.price }}
       </p>
       <img class="mt-2" src="assets/card-detail.png" alt="" />
       <hr />
       <strong>{{ accomdation.username }}</strong>
-      <p>multiple roommates</p>
+      <p><b><span>Free Wifi</span> |  <span>Elevator</span></b></p>
+      <!-- <p>Elevator</p> -->
       <div class="d-flex">
         <img class="card-user" src="assets/card-user.png" alt="" />
         <div class="ms-3">
-          <p class="m-0">22 Years</p>
+          <!-- <p class="m-0">22 Years</p>
           <p class="m-0">1 male</p>
-          <p class="m-0">ui/ux designer</p>
-          <p class="m-0">{{accomdation.availability}}</p>
-          <p class="m-0">{{accomdation.accomidation_name}}</p>
-          <p class="m-0">{{accomdation.distance}}</p>
+          <p class="m-0">ui/ux designer</p> -->
+          <p class="m-0">Availability: {{accomdation.availability}}</p>
+          <p class="m-0">Acc-Name: {{accomdation.accomidation_name}}</p>
+          <p class="m-0"> Distance: {{accomdation.distance}}</p>
         </div>
       </div>
       <div>

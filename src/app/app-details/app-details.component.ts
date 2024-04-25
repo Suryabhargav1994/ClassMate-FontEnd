@@ -77,6 +77,7 @@ export class AppDetailsComponent implements OnInit {
         );
         if (accommodation) {
           accommodation.booked = true;
+          this.loadAccList(this.universityId);
         }
       }
     });
